@@ -1,13 +1,247 @@
-body {
+/*GENERAL*/
+body{
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(51deg, rgba(81,120,213,1) 0%, rgba(193,140,158,1) 100%);
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*MAIN*/
+.container{
+  width: 60%;
+  margin: 0 auto;
+  margin-top:5em;
+  height: 100vh;
+  text-align: center;
+}
+
+input{
+  outline: none;
+}
+
+.clock{
+  background-color: black;
+  color: white;
+  border-radius: .5em;
+  margin: 0 auto;
+  padding: 2vw 3vw;
+  -webkit-box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 50px 2px rgba(0,0,0,0.75);
+}
+
+/*TIME*/
+.column p{
+  font-size: 8vw;
+  font-weight: 100;
+  margin: 0;
+}
+
+.time{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dot{
+  opacity: .5;
+  font-size:3vw;
+  font-weight: bold;
+}
+
+.column{
+  text-align: center;
+}
+
+.column span{
+  opacity: 0.5;
+  font-size: 1vw;
+}
+
+/*INPUT BOX*/
+.overlay{
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  color: black;
+  z-index: 2;
+}
+
+form{
+  width: 30%;
+  padding: 2em;
+  text-align: center;
+  background-color: white;
+  border-radius: .3em;
+  position: relative;
+  z-index: 10;
+}
+
+form h3{
+  font-size: 2.2vw;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+form input[type="text"]{
+  width: 100%;
+  padding: .8vw;
+  margin: 0.5vw 0 1.5vw 0;
+  border-radius: .3em;
+  border: 1px solid grey;
+  box-sizing: border-box;
+}
+
+form input[type="number"]{
+  padding: .8vw;
+  margin:0.5em 0;
+  border-radius: .3em;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+label{
+  display: block;
+  text-align: left;
+  font-size:1.2vw;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputNumber{
+  flex-basis:48%;
+  position: relative;
+} 
+
+form button{
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: .5em;
+  border-radius: .3em;
+  border: 0;
+  margin-top: 2.5vw;
+  background: linear-gradient(51deg, rgba(81,120,213,1) 0%, rgba(193,140,158,1) 100%);
+  color: white;
+  font-size: 1.6vw;
+  outline: none;
+}
+
+form button:hover{
+  cursor: pointer;
+}
+
+.closeIcon{
+  font-size: 1.5vw;
+  position: absolute;
+  top: .5em;
+  right: .5em;
+}
+
+.closeIcon:hover{
+  cursor: pointer;
+}
+
+/*SET ALARM*/
+.btn-setAlarm{
+  width: 100%;
+  margin-top: 2vw;
+  padding: 1vw;
+  border-radius: .3em;
+  border:0;
+  font-size: 1.6vw;
+  outline: none;
+  background-color: #eeeeee;
+  transition: .3s ease-in-out;
+}
+
+.btn-setAlarm:hover{
+  cursor: pointer;
+  background-color: white;
+}
+
+/*RING*/
+.ring a{
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: .5em;
+  border-radius: .3em;
+  margin-top: 1.5em;
+  background: linear-gradient(51deg, rgba(81,120,213,1) 0%, rgba(193,140,158,1) 100%);
+  color: white;
+  font-size: 1.5em;
+}
+
+.ring a:hover{
+  cursor: pointer;
+}
+
+/*LIST OF ACTIVE ALARMS*/
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0;
+}
+
+ul > div {
+  box-sizing: border-box;
+  margin: 10px 10px 0 0;
+  width: calc(1/3*100% - (1 - 1/3)*10px);
+  position: relative;
+  background-color: white;
+  border-radius: .3em;
+  padding: 1vw;
+}
+
+ul > div:nth-child(3n) {
+  margin-right: 0;
+}
+
+ul::after {
+  content: '';
+  flex: auto;
+}
+
+ul > div:nth-child(-n+3) {
+  margin-top: 0;
+}
+
+li h3{
+  margin: 0;
+  letter-spacing: 0.1em;
+  font-size: 1vw;
+}
+
+.listIcon{
+  position: absolute;
+  top: .5em;
+  right: .5em;
+  font-size: 1vw;
+}
+
+.listIcon:hover{
+  cursor: pointer;
+}
+
+/*Error validation*/
+.inputNumber span{
+  position: absolute;
+  bottom:-1.5vw;
+  left: 0;
+  color: red;
+  font-size: 1.1vw;
 }
