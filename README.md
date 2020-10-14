@@ -6,7 +6,7 @@
 
 Check package.json for more details.
 
-###Quick introduction
+### Quick introduction
 
 User can set multiple alarms ,which are displayed under the clock. 
 There you can see the time when alarm is going to ring or you can deactivate alarm by click on X button. 
